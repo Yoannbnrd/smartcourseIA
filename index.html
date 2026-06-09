@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartCourses AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navigation principale">
+      <button class="brand" data-page="dashboard" type="button">
+        <span class="brand-mark">S</span>
+        <span>
+          <strong>SmartCourses</strong>
+          <small>AI</small>
+        </span>
+      </button>
+
+      <nav class="nav-list">
+        <button class="nav-item active" data-page="dashboard" type="button">
+          <span class="nav-icon">⌂</span>
+          <span>Tableau de bord</span>
+        </button>
+        <button class="nav-item" data-page="fridge" type="button">
+          <span class="nav-icon">▣</span>
+          <span>Mon frigo</span>
+        </button>
+        <button class="nav-item" data-page="planning" type="button">
+          <span class="nav-icon">◴</span>
+          <span>Planning repas</span>
+        </button>
+        <button class="nav-item" data-page="shopping" type="button">
+          <span class="nav-icon">☑</span>
+          <span>Liste de courses</span>
+        </button>
+        <button class="nav-item" data-page="recipes" type="button">
+          <span class="nav-icon">◈</span>
+          <span>Recettes</span>
+        </button>
+        <button class="nav-item" data-page="budget" type="button">
+          <span class="nav-icon">€</span>
+          <span>Budget</span>
+        </button>
+        <button class="nav-item" data-page="profile" type="button">
+          <span class="nav-icon">◉</span>
+          <span>Profil</span>
+        </button>
+        <button class="nav-item premium-link" data-page="premium" type="button">
+          <span class="nav-icon">✦</span>
+          <span>Premium</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-card">
+        <span class="card-kicker">Budget restant</span>
+        <strong>12 €</strong>
+        <div class="mini-progress">
+          <span style="width: 76%"></span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Bonjour Yoann</p>
+          <h1 id="page-title">Tableau de bord</h1>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="icon-button" id="notify-btn" type="button" aria-label="Notifications">🔔</button>
+          <button class="avatar" data-page="profile" type="button" aria-label="Profil utilisateur">Y</button>
+        </div>
+      </header>
+
+      <div class="page-stack">
+        <section class="page active" id="dashboard" data-title="Tableau de bord">
+          <div class="stats-grid">
+            
+            <article class="panel">
+              <div class="panel-heading">
+                <h2>Progression budget</h2>
+                <strong>76 %</strong>
+              </div>
+              <div class="budget-progress" aria-label="38 euros utilisés sur 50 euros">
+                <span style="width: 76%"></span>
+              </div>
+              <p class="muted">38 € utilisés sur 50 €</p>
+            </article>
+            <article class="stat-card">
+              <span>Budget semaine</span>
+              <strong>50 €</strong>
+            </article>
+            <article class="stat-card">
+              <span>Dépenses estimées</span>
+              <strong>38 €</strong>
+            </article>
+            <article class="stat-card">
+              <span>Économies estimées</span>
+              <strong>12 €</strong>
+            </article>
+            <article class="stat-card">
+              <span>Repas prévus</span>
+              <strong>7</strong>
+            </article>
+            <article class="stat-card">
+              <span>Produits à consommer</span>
+              <strong>3</strong>
+            </article>
+            <article class="stat-card">
+              <span>Score anti-gaspillage</span>
+              <strong>82 %</strong>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="panel meal-hero">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Repas du jour</p>
+                  <h2>Poulet riz légumes</h2>
+                </div>
+                <span class="food-visual">🍗</span>
+              </div>
+              <div class="meal-facts">
+                <span>25 min</span>
+                <span>3,80 € / personne</span>
+                <span>Équilibré</span>
+              </div>
+              <button class="secondary-button recipe-open" data-recipe="Poulet riz légumes" type="button">Voir la recette</button>
+            </article>
+
+            <article class="panel">
+              <div class="panel-heading">
+                <h2>À consommer rapidement</h2>
+              </div>
+              <ul class="urgent-list">
+                <li><span>🍅</span>Tomates</li>
+                <li><span>🥛</span>Yaourt nature</li>
+                <li><span>🍗</span>Poulet ouvert</li>
+              </ul>
+            </article>
+
+
+            <article class="panel quick-actions">
+              <h2>Suggestions rapides</h2>
+              <button type="button" class="ghost-button random-replace">Remplacer un repas</button>
+              <button type="button" class="ghost-button" data-page="fridge">Ajouter un aliment</button>
+              <button type="button" class="ghost-button" data-page="shopping">Générer une liste de courses</button>
+              <button type="button" class="ghost-button" data-page="recipes">Voir recettes économiques</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="page" id="fridge" data-title="Mon frigo">
+          <div class="section-toolbar">
+            <button class="primary-button" id="open-food-form" type="button">Ajouter un aliment</button>
+          </div>
+
+          <div class="filters-row">
+            <label class="inline-search">
+              <span>⌕</span>
+              <input type="search" id="fridge-search" placeholder="Rechercher dans mon frigo">
+            </label>
+            <button class="filter-pill active" data-filter="Tous" type="button">Tous</button>
+            <button class="filter-pill" data-filter="À consommer vite" type="button">À consommer vite</button>
+            <button class="filter-pill" data-filter="Fruits/Légumes" type="button">Fruits/Légumes</button>
+            <button class="filter-pill" data-filter="Protéines" type="button">Protéines</button>
+            <button class="filter-pill" data-filter="Féculents" type="button">Féculents</button>
+            <button class="filter-pill" data-filter="Produits frais" type="button">Produits frais</button>
+          </div>
+
+          <form class="food-form hidden" id="food-form">
+            <label>
+              Nom aliment
+              <input type="text" id="food-name" placeholder="Ex. Lentilles" required>
+            </label>
+            <label>
+              Quantité
+              <input type="text" id="food-quantity" placeholder="Ex. 500 g" required>
+            </label>
+            <label>
+              Catégorie
+              <select id="food-category">
+                <option>Fruits/Légumes</option>
+                <option>Protéines</option>
+                <option>Féculents</option>
+                <option>Produits frais</option>
+                <option>Épicerie</option>
+              </select>
+            </label>
+            <label>
+              Urgence
+              <select id="food-urgency">
+                <option>OK</option>
+                <option>bientôt</option>
+                <option>à consommer aujourd'hui</option>
+                <option>ouvert depuis 2 jours</option>
+              </select>
+            </label>
+            <button class="primary-button" type="submit">Ajouter</button>
+          </form>
+
+          <div class="food-grid" id="food-grid"></div>
+        </section>
+
+        <section class="page" id="planning" data-title="Planning repas">
+          <div class="section-toolbar">
+            <div class="toolbar-actions">
+              <button class="secondary-button" id="regenerate-plan" type="button">Régénérer la semaine</button>
+              <button class="secondary-button random-replace" type="button">Remplacer un repas</button>
+            </div>
+          </div>
+
+          <div class="planning-grid" id="planning-grid"></div>
+        </section>
+
+        <section class="page" id="shopping" data-title="Liste de courses">
+          <div class="section-toolbar">
+            <div class="toolbar-actions">
+              <button class="secondary-button" id="export-list" type="button">Exporter la liste</button>
+              <button class="secondary-button" id="check-all" type="button">Cocher tout</button>
+              <button class="secondary-button" id="sort-list" type="button">Trier par rayon</button>
+              <button class="secondary-button" id="reduce-budget" type="button">Réduire le budget</button>
+            </div>
+          </div>
+
+          <div class="shopping-layout">
+            <div class="shopping-list" id="shopping-list"></div>
+            <aside class="panel shopping-summary">
+              <h2>Résumé</h2>
+              <dl>
+                <div><dt>Total estimé</dt><dd id="shopping-total">38 €</dd></div>
+                <div><dt>Budget</dt><dd>50 €</dd></div>
+                <div><dt>Reste</dt><dd id="shopping-left">12 €</dd></div>
+                <div><dt>Produits déjà disponibles</dt><dd id="available-count">3</dd></div>
+                <div><dt>Économie estimée</dt><dd>12 €</dd></div>
+              </dl>
+            </aside>
+          </div>
+        </section>
+
+        <section class="page" id="recipes" data-title="Recettes">
+          <div class="section-toolbar">
+            <div>
+              <p class="eyebrow">Idées adaptées</p>
+              <h2>Recettes recommandées</h2>
+            </div>
+            <div class="segmented">
+              <button class="active" type="button">Toutes</button>
+              <button type="button">Économiques</button>
+              <button type="button">Protéinées</button>
+              <button type="button">Anti-gaspillage</button>
+            </div>
+          </div>
+
+          <div class="recipes-grid" id="recipes-grid"></div>
+        </section>
+
+        <section class="page" id="budget" data-title="Budget">
+          <div class="stats-grid compact">
+            <article class="stat-card">
+              <span>Budget défini</span>
+              <strong>50 €</strong>
+            </article>
+            <article class="stat-card">
+              <span>Dépenses estimées</span>
+              <strong>38 €</strong>
+            </article>
+            <article class="stat-card">
+              <span>Reste</span>
+              <strong>12 €</strong>
+            </article>
+            <article class="stat-card">
+              <span>Économies frigo</span>
+              <strong>12 €</strong>
+            </article>
+            <article class="stat-card">
+              <span>Coût moyen par repas</span>
+              <strong>2,70 €</strong>
+            </article>
+          </div>
+
+          <div class="budget-layout">
+            <article class="panel">
+              <div class="panel-heading">
+                <h2>Répartition du budget</h2>
+                <span class="muted">38 € estimés</span>
+              </div>
+              <canvas id="budget-chart" width="520" height="260" aria-label="Graphique de répartition du budget"></canvas>
+            </article>
+            <article class="panel">
+              <h2>Conseils économies</h2>
+              <ul class="advice-list">
+                <li>Utiliser les restes du poulet dans un wrap.</li>
+                <li>Remplacer certains produits par des légumineuses.</li>
+                <li>Cuisiner en plus grande quantité.</li>
+                <li>Privilégier les produits de saison.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="page" id="profile" data-title="Profil">
+          <div class="profile-layout">
+            <article class="panel profile-card">
+              <div class="profile-header">
+                <button class="avatar large" type="button" aria-label="Avatar Yoann">Y</button>
+                <div>
+                  <p class="eyebrow">Profil utilisateur</p>
+                  <h2>Yoann</h2>
+                </div>
+              </div>
+
+              <form class="profile-form">
+                <label>Nom<input type="text" value="Yoann"></label>
+                <label>Nombre de personnes<input type="number" min="1" value="1"></label>
+                <label>Budget semaine<input type="text" value="50 €"></label>
+                <div class="profile-field">
+                  <span>Objectif</span>
+                  <details class="goal-dropdown" id="goal-dropdown">
+                    <summary id="goal-summary">Mode économique</summary>
+                    <div class="goal-options">
+                      <label><input type="radio" name="goals" value="Mode économique" checked> Mode économique</label>
+                      <label><input type="radio" name="goals" value="Mode sportif"> Mode sportif</label>
+                      <label><input type="radio" name="goals" value="Bien-être"> Bien-être</label>
+                    </div>
+                  </details>
+                </div>
+                <label>Niveau cuisine
+                  <select>
+                    <option>Débutant/intermédiaire</option>
+                    <option>Débutant</option>
+                    <option>Intermédiaire</option>
+                    <option>Avancé</option>
+                  </select>
+                </label>
+                <label>Temps maximum par recette<input type="text" value="30 min"></label>
+                <fieldset>
+                  <legend>Préférences</legend>
+                  <label><input type="checkbox" checked> Recettes simples</label>
+                  <label><input type="checkbox" checked> Repas économiques</label>
+                  <label><input type="checkbox" checked> Repas protéinés</label>
+                </fieldset>
+                <label>Allergies<input type="text" value="Aucune renseignée"></label>
+                <div class="form-actions">
+                  <button class="primary-button" type="button" id="save-profile">Sauvegarder</button>
+                  <button class="ghost-button" type="reset">Réinitialiser</button>
+                </div>
+              </form>
+            </article>
+          </div>
+        </section>
+
+        <section class="page" id="premium" data-title="Premium">
+          <div class="premium-layout">
+            <article class="panel plan-card">
+              <p class="eyebrow">Offre actuelle</p>
+              <h2>Gratuite</h2>
+              <p class="muted">Planning limité, recettes essentielles et liste de courses simulée.</p>
+              <span class="plan-price">0 €</span>
+            </article>
+
+            <article class="panel plan-card featured">
+              <p class="eyebrow">SmartCourses AI Premium</p>
+              <h2>4,99 € / mois</h2>
+              <ul class="benefit-list">
+                <li>Sans publicité</li>
+                <li>Recettes illimitées</li>
+                <li>Objectifs nutritionnels</li>
+                <li>Suivi calories/protéines</li>
+                <li>Rappels anti-gaspillage</li>
+                <li>Statistiques avancées</li>
+                <li>Historique complet</li>
+              </ul>
+              <button class="primary-button" type="button">Activer Premium</button>
+            </article>
+          </div>
+
+          <article class="panel comparison-panel">
+            <h2>Comparatif</h2>
+            <div class="comparison-table">
+              <div class="comparison-row header">
+                <span>Fonctionnalité</span>
+                <strong>Free</strong>
+                <strong>Premium</strong>
+              </div>
+              <div class="comparison-row"><span>Recettes hebdomadaires</span><span>Limité</span><span>Illimitées</span></div>
+              <div class="comparison-row"><span>Objectifs nutritionnels</span><span>Basique</span><span>Avancé</span></div>
+              <div class="comparison-row"><span>Suivi calories/protéines</span><span>Non</span><span>Oui</span></div>
+              <div class="comparison-row"><span>Rappels anti-gaspillage</span><span>Non</span><span>Illimités</span></div>
+              <div class="comparison-row"><span>Statistiques</span><span>Budget</span><span>Budget + nutrition</span></div>
+              <div class="comparison-row"><span>Historique complet</span><span>Non</span><span>Oui</span></div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Navigation mobile">
+    <button data-page="fridge" type="button"><span>▣</span>Frigo</button>
+    <button data-page="planning" type="button"><span>◴</span>Repas</button>
+    <button class="active" data-page="dashboard" type="button"><span>⌂</span>Accueil</button>
+    <button data-page="shopping" type="button"><span>☑</span>Courses</button>
+    <button id="mobile-more-btn" type="button"><span>☰</span>Plus</button>
+  </nav>
+
+  <div class="mobile-more-menu hidden" id="mobile-more-menu">
+    <button data-page="budget" type="button">Budget</button>
+    <button data-page="profile" type="button">Profil</button>
+    <button data-page="premium" type="button">Premium</button>
+  </div>
+
+  <div class="modal-backdrop hidden" id="recipe-modal" role="dialog" aria-modal="true" aria-labelledby="recipe-modal-title">
+    <article class="modal-card">
+      <button class="icon-button modal-close" type="button" aria-label="Fermer">×</button>
+      <div id="recipe-detail"></div>
+    </article>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <button class="back-top" id="back-top" type="button" aria-label="Retour en haut">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
